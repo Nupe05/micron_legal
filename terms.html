@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Micron Signal Terms and Conditions</title>
+<meta name="description" content="Terms and conditions for the Micron Signal SMS alert program.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f5f3;
+    --paper-raised: #ffffff;
+    --ink: #14181f;
+    --muted: #5a6069;
+    --line: #dfe2df;
+    --accent: #b3672c;
+    --accent-strong: #8a4f21;
+    --accent-soft: #f1e3d3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); }
+  body {
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+  .rail {
+    position: fixed; left: 2rem; top: 0; bottom: 0; width: 2rem;
+    display: none; align-items: center; justify-content: center;
+  }
+  .rail span {
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-size: 0.72rem; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+  }
+  @media (min-width: 1100px) { .rail { display: flex; } }
+  .mast-row {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between;
+    font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-strong);
+  }
+  h1 {
+    font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+    font-size: clamp(2.1rem, 4.2vw, 2.9rem); letter-spacing: -0.01em;
+    margin: 0.9rem 0 0.6rem; text-wrap: balance;
+  }
+  .dek { max-width: 62ch; color: var(--muted); font-size: 1.06rem; margin: 0 0 1.6rem; }
+  .doclinks {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.82rem;
+    padding-top: 1.4rem; border-top: 1px solid var(--line);
+  }
+  .doclinks a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 0.1rem; }
+  .doclinks a:hover { color: var(--accent-strong); }
+  ol.clauses { list-style: none; margin: 3rem 0 0; padding: 0; counter-reset: clause; }
+  .clause {
+    counter-increment: clause; padding: 1.9rem 0; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.4rem 1.2rem;
+  }
+  .clause:last-child { border-bottom: 1px solid var(--line); }
+  .clause::before {
+    content: counter(clause, decimal-leading-zero); font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem; color: var(--accent); padding-top: 0.28rem;
+  }
+  .clause h2 { grid-column: 2; font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600; font-size: 1.16rem; margin: 0 0 0.5rem; }
+  .clause p, .clause ul { grid-column: 2; margin: 0 0 0.7rem; color: var(--ink); max-width: 64ch; }
+  .clause p:last-child, .clause ul:last-child { margin-bottom: 0; }
+  .clause ul { padding-left: 1.2rem; }
+  .clause li { margin-bottom: 0.35rem; }
+  code, .kw {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.88em; background: var(--paper-raised);
+    border: 1px solid var(--line); border-radius: 5px; padding: 0.05em 0.42em;
+  }
+  .samples { grid-column: 2; display: grid; gap: 0.6rem; margin-top: 0.4rem; }
+  .sms {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.86rem; background: var(--paper-raised);
+    border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px;
+    padding: 0.75rem 0.9rem; max-width: 56ch; color: var(--ink);
+  }
+  .sms .tag {
+    display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.3rem;
+  }
+  footer { margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="rail"><span>Micron Signal — SMS Program Disclosures</span></div>
+
+<main class="wrap">
+  <header>
+    <div class="mast-row">
+      <span>Micron Signal · SMS Program</span>
+      <span>Effective August 21, 2026</span>
+    </div>
+    <h1>Terms and Conditions</h1>
+    <p class="dek">
+      These terms govern the Micron Signal SMS alert program for MU options research, regime scoring,
+      and trade verdict notifications.
+    </p>
+    <nav class="doclinks mono" aria-label="Related documents">
+      <a href="privacy.html">Privacy Policy ↗</a>
+      <a href="optin.html">Opt In to Alerts ↗</a>
+    </nav>
+  </header>
+
+  <ol class="clauses">
+    <li class="clause">
+      <h2>Program description</h2>
+      <p>
+        Micron Signal sends recurring SMS alerts with daily MU (Micron Technology) research results —
+        signal direction, regime score, and trade verdicts — to a phone number the account holder has
+        opted in.
+      </p>
+    </li>
+    <li class="clause">
+      <h2>Consent</h2>
+      <p>
+        By providing your phone number and checking the consent box at the opt-in page, you agree to
+        receive recurring automated text messages from Micron Signal. Consent is not a condition of
+        purchase. The consent checkbox is unchecked by default; nothing is sent until you actively opt in.
+      </p>
+    </li>
+    <li class="clause">
+      <h2>Message frequency</h2>
+      <p>Message frequency varies based on market conditions and the daily research schedule.</p>
+    </li>
+    <li class="clause">
+      <h2>Fees</h2>
+      <p>Message and data rates may apply. Carriers are not liable for delayed or undelivered messages.</p>
+    </li>
+    <li class="clause">
+      <h2>Opt-out</h2>
+      <p>
+        Reply <code class="kw">STOP</code>, <code class="kw">CANCEL</code>, <code class="kw">QUIT</code>,
+        <code class="kw">OPTOUT</code>, <code class="kw">UNSUBSCRIBE</code>, <code class="kw">STOPALL</code>,
+        <code class="kw">REVOKE</code>, or <code class="kw">END</code> at any time to stop receiving messages.
+        You may receive one confirmation message after opting out. Reply <code class="kw">START</code>,
+        <code class="kw">YES</code>, or <code class="kw">UNSTOP</code> to resubscribe.
+      </p>
+    </li>
+    <li class="clause">
+      <h2>Help</h2>
+      <p>
+        Reply <code class="kw">HELP</code>, <code class="kw">INFO</code>, or <code class="kw">SUPPORT</code>
+        for assistance, or contact the account holder through the Micron Signal project.
+      </p>
+    </li>
+    <li class="clause">
+      <h2>Acceptable use</h2>
+      <p>
+        You agree not to misuse the service, attempt unauthorized access, or provide a phone number you
+        do not control or have permission to enroll.
+      </p>
+    </li>
+    <li class="clause">
+      <h2>Changes to these terms</h2>
+      <p>
+        We may update these terms as the program changes. The effective date above reflects the most
+        recent revision.
+      </p>
+    </li>
+    <li class="clause">
+      <h2>Sample messages</h2>
+      <div class="samples">
+        <div class="sms">
+          <span class="tag">Opt-in confirmation</span>
+          Micron Signal: You're now opted in to recurring SMS alerts for MU research and trade updates.
+          Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help. Reply STOP to cancel.
+        </div>
+        <div class="sms">
+          <span class="tag">Trade alert</span>
+          Micron Signal: TRADE CALL. Regime trend_up, score 14.8, bias bullish. Reply STOP to opt out.
+        </div>
+        <div class="sms">
+          <span class="tag">No-trade alert</span>
+          Micron Signal: NO TRADE - CHOP. Regime chop, score 2.1. Reply STOP to opt out.
+        </div>
+        <div class="sms">
+          <span class="tag">Help response</span>
+          Micron Signal: Reply HELP for help. Reply STOP to cancel. Msg frequency varies. Msg &amp; data
+          rates may apply.
+        </div>
+        <div class="sms">
+          <span class="tag">Opt-out confirmation</span>
+          You have successfully been unsubscribed. You will not receive any more messages from this
+          number. Reply START to resubscribe.
+        </div>
+      </div>
+    </li>
+  </ol>
+
+  <footer class="mono">
+    micron-signal · sms program · terms and conditions · effective 2026-08-21
+  </footer>
+</main>
+</body>
+</html>

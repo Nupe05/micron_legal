@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Micron Signal Opt-In</title>
+<meta name="description" content="Opt in to SMS alerts from the Micron Signal program.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f5f3;
+    --paper-raised: #ffffff;
+    --ink: #14181f;
+    --muted: #5a6069;
+    --line: #dfe2df;
+    --accent: #b3672c;
+    --accent-strong: #8a4f21;
+    --accent-soft: #f1e3d3;
+    --good: #3f7a4e;
+    --good-soft: #e4f0e6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); }
+  body {
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+  .mast-row {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between;
+    font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-strong);
+  }
+  h1 {
+    font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+    font-size: clamp(2.1rem, 4.2vw, 2.7rem); letter-spacing: -0.01em;
+    margin: 0.9rem 0 0.6rem; text-wrap: balance;
+  }
+  .dek { max-width: 60ch; color: var(--muted); font-size: 1.05rem; margin: 0 0 1.4rem; }
+  .doclinks {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.82rem;
+    padding-top: 1.4rem; border-top: 1px solid var(--line); margin-bottom: 2.6rem;
+  }
+  .doclinks a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 0.1rem; }
+  .doclinks a:hover { color: var(--accent-strong); }
+
+  .card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; padding: 2rem; }
+  label.field-label {
+    display: block; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+  input[type="tel"] {
+    width: 100%; font: inherit; font-size: 1.05rem; color: var(--ink); background: var(--paper);
+    border: 1px solid var(--line); border-radius: 9px; padding: 0.8rem 0.95rem;
+  }
+  input[type="tel"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .consent-row {
+    display: flex; align-items: flex-start; gap: 0.75rem; margin: 1.5rem 0 1.6rem;
+    padding: 1.1rem; border: 1px solid var(--line); border-radius: 10px;
+  }
+  .consent-row input[type="checkbox"] {
+    margin-top: 0.2rem; width: 1.15rem; height: 1.15rem; accent-color: var(--accent); flex-shrink: 0;
+  }
+  .consent-row p { margin: 0; font-size: 0.9rem; color: var(--ink); }
+  .consent-row a { color: var(--accent-strong); }
+  .kw { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+
+  button {
+    font: inherit; font-weight: 600; font-size: 0.98rem; color: #fff; background: var(--accent);
+    border: none; border-radius: 999px; padding: 0.85rem 1.8rem; cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  button:hover:not(:disabled) { background: var(--accent-strong); }
+  button:active:not(:disabled) { transform: translateY(1px); }
+  button:disabled { background: var(--line); color: var(--muted); cursor: not-allowed; }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .result { display: none; }
+  .result.show { display: block; }
+  .form-body.hide { display: none; }
+
+  .sms-bubble {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.88rem; background: var(--good-soft);
+    border: 1px solid var(--good); border-radius: 12px; padding: 1rem 1.15rem; color: var(--ink);
+  }
+  .sms-bubble .tag {
+    display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--good); margin-bottom: 0.45rem; font-family: "IBM Plex Sans", sans-serif; font-weight: 600;
+  }
+  .result h2 { font-family: "IBM Plex Serif", Georgia, serif; font-size: 1.3rem; margin: 0 0 0.9rem; }
+  .note { margin-top: 1.6rem; font-size: 0.86rem; color: var(--muted); }
+  footer { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header>
+    <div class="mast-row">
+      <span>Micron Signal · SMS Program</span>
+      <span>Opt-In</span>
+    </div>
+    <h1>Sign up for Micron Signal SMS alerts</h1>
+    <p class="dek">
+      Enter a mobile number and opt in to receive Micron Signal alerts — MU regime score, signal
+      direction, and trade verdicts.
+    </p>
+    <nav class="doclinks mono" aria-label="Related documents">
+      <a href="privacy.html">Privacy Policy ↗</a>
+      <a href="terms.html">Terms &amp; Conditions ↗</a>
+    </nav>
+  </header>
+
+  <div class="card">
+    <form class="form-body" id="optin-form">
+      <label class="field-label" for="phone">Mobile phone number</label>
+      <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-5555" required />
+
+      <div class="consent-row">
+        <input type="checkbox" id="consent" />
+        <p>
+          I agree to receive recurring automated SMS alerts from Micron Signal (MU options research,
+          regime score, and trade verdicts) at the number above. Consent is not a condition of purchase.
+          Message frequency varies. Message and data rates may apply. Reply <span class="kw">STOP</span> to
+          cancel, <span class="kw">HELP</span> for help. View the
+          <a href="privacy.html">Privacy Policy</a> and
+          <a href="terms.html">Terms and Conditions</a>.
+        </p>
+      </div>
+
+      <button type="submit" id="submit-btn" disabled>Opt in to SMS alerts</button>
+    </form>
+
+    <div class="result" id="result">
+      <h2>You're opted in</h2>
+      <div class="sms-bubble">
+        <span class="tag">Text received</span>
+        Micron Signal: You're now opted in to recurring SMS alerts for MU research and trade updates.
+        Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help. Reply STOP to cancel.
+      </div>
+      <p class="note">This confirms your consent settings. No message was actually sent from this page.</p>
+    </div>
+  </div>
+
+  <footer class="mono">
+    micron-signal · sms program · opt-in · effective 2026-08-21
+  </footer>
+</main>
+
+<script>
+  var phone = document.getElementById('phone');
+  var consent = document.getElementById('consent');
+  var btn = document.getElementById('submit-btn');
+  var form = document.getElementById('optin-form');
+  var result = document.getElementById('result');
+
+  function digits(v) { return (v || '').replace(/\D/g, ''); }
+  function refresh() {
+    btn.disabled = !(consent.checked && digits(phone.value).length >= 10);
+  }
+  phone.addEventListener('input', refresh);
+  consent.addEventListener('change', refresh);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (btn.disabled) return;
+    form.classList.add('hide');
+    result.classList.add('show');
+  });
+</script>
+</body>
+</html>
