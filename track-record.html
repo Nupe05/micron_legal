@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MU Signal Track Record</title>
+<meta name="description" content="Public, auto-generated track record for the MU daily signal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f5f3;
+    --paper-raised: #ffffff;
+    --ink: #14181f;
+    --muted: #5a6069;
+    --line: #dfe2df;
+    --accent: #b3672c;
+    --accent-strong: #8a4f21;
+    --accent-soft: #f1e3d3;
+    --good: #3f7a4e;
+    --good-soft: #e4f0e6;
+    --bad: #a83f3f;
+    --bad-soft: #f3e3e2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--paper); }
+  body {
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+  .mast-row {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between;
+    font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-strong);
+  }
+  h1 {
+    font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+    font-size: clamp(2.1rem, 4.2vw, 2.9rem); letter-spacing: -0.01em;
+    margin: 0.9rem 0 0.6rem; text-wrap: balance;
+  }
+  .dek { max-width: 62ch; color: var(--muted); font-size: 1.06rem; margin: 0 0 1.6rem; }
+  .doclinks {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.82rem;
+    padding-top: 1.4rem; border-top: 1px solid var(--line); margin-bottom: 2.4rem;
+  }
+  .doclinks a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 0.1rem; }
+  .doclinks a:hover { color: var(--accent-strong); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin-bottom: 2.6rem; }
+  .stat { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; padding: 1.3rem 1.4rem; }
+  .stat .label { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .stat .value {
+    font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+    font-size: 2rem; margin-top: 0.35rem; color: var(--ink);
+  }
+  .stat .sub { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+  .method {
+    background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px;
+    padding: 1rem 1.2rem; font-size: 0.92rem; color: var(--ink); margin-bottom: 2.6rem;
+  }
+  .method strong { color: var(--accent-strong); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+  thead th {
+    text-align: left; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); padding: 0.85rem 1rem; background: var(--paper-raised); border-bottom: 1px solid var(--line);
+  }
+  tbody td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--paper-raised); }
+  .badge {
+    display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; font-weight: 600;
+    padding: 0.15em 0.55em; border-radius: 999px;
+  }
+  .badge.correct { background: var(--good-soft); color: var(--good); }
+  .badge.incorrect { background: var(--bad-soft); color: var(--bad); }
+  .empty {
+    background: var(--paper-raised); border: 1px dashed var(--line); border-radius: 14px;
+    padding: 2.4rem; text-align: center; color: var(--muted);
+  }
+  .table-note { margin-top: 0.7rem; font-size: 0.8rem; color: var(--muted); }
+  footer { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="mast-row">
+      <span>MU Signal · Track Record</span>
+      <span>Updated August 22, 2026 00:30 UTC</span>
+    </div>
+    <h1>Track record</h1>
+    <p class="dek">
+      Every actionable MU call, graded the next morning against that day's close.
+      Auto-generated from the trading journal -- nothing here is curated or cherry-picked.
+    </p>
+    <nav class="doclinks mono" aria-label="Related documents">
+      <a href="optin.html">Opt In to Alerts ↗</a>
+      <a href="privacy.html">Privacy Policy ↗</a>
+      <a href="terms.html">Terms &amp; Conditions ↗</a>
+    </nav>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">All-time accuracy</div>
+      <div class="value">0.0%</div>
+      <div class="sub">0 of 0 calls</div>
+    </div>
+    <div class="stat">
+      <div class="label">Last 20 sessions</div>
+      <div class="value">N/A</div>
+      <div class="sub">0 of 0 calls</div>
+    </div>
+  </div>
+
+  <div class="method">
+    <strong>Methodology.</strong> A call is graded correct if MU's close on the call date
+    moved in the predicted direction from the prior close (the entry price). Only actionable
+    <code class="mono">TRADE CALL</code> / <code class="mono">TRADE PUT</code> days are scored --
+    <code class="mono">NO TRADE</code> days sit out and aren't counted for or against the accuracy
+    number. This is a same-day directional read, separate from the underlying 21-day options
+    paper-trade record used for the model's self-learning loop.
+  </div>
+
+    <div class="empty">
+      No calls have been graded yet. Check back after the first trading day -- every
+      actionable call gets graded against that day's close the next morning.
+    </div>
+
+  <footer class="mono">
+    mu-signal · track record · not financial advice, educational research only
+  </footer>
+</main>
+</body>
+</html>
