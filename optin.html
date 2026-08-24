@@ -70,15 +70,26 @@
   .consent-row a { color: var(--accent-strong); }
   .kw { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
 
+  .actions { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+
+  button, .skip-link {
+    font: inherit; font-weight: 600; font-size: 0.98rem;
+    border-radius: 999px; padding: 0.85rem 1.8rem; cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+  }
   button {
-    font: inherit; font-weight: 600; font-size: 0.98rem; color: #fff; background: var(--accent);
-    border: none; border-radius: 999px; padding: 0.85rem 1.8rem; cursor: pointer;
-    transition: background 0.15s ease, transform 0.1s ease;
+    color: #fff; background: var(--accent); border: none;
   }
   button:hover:not(:disabled) { background: var(--accent-strong); }
   button:active:not(:disabled) { transform: translateY(1px); }
   button:disabled { background: var(--line); color: var(--muted); cursor: not-allowed; }
-  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button:focus-visible, .skip-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .skip-link {
+    color: var(--ink); background: transparent; border: 1px solid var(--line);
+    text-decoration: none; display: inline-flex; align-items: center;
+  }
+  .skip-link:hover { border-color: var(--accent); color: var(--accent-strong); }
 
   .result { display: none; }
   .result.show { display: block; }
@@ -111,6 +122,13 @@
       Enter a mobile number and opt in to receive Micron Signal alerts — MU regime score, signal
       direction, and trade verdicts.
     </p>
+    <p class="dek">
+      <strong>SMS is entirely optional.</strong> Micron Signal's daily research and track record are
+      free to follow with no phone number and no sign-up — see the
+      <a href="track-record.html">public track record</a> or follow free updates on
+      <a href="https://www.threads.net/@rights.obligations" target="_blank" rel="noreferrer">Threads</a>.
+      Declining SMS doesn't limit access to anything.
+    </p>
     <nav class="doclinks mono" aria-label="Related documents">
       <a href="privacy.html">Privacy Policy ↗</a>
       <a href="terms.html">Terms &amp; Conditions ↗</a>
@@ -135,7 +153,10 @@
         </p>
       </div>
 
-      <button type="submit" id="submit-btn" disabled>Opt in to SMS alerts</button>
+      <div class="actions">
+        <button type="submit" id="submit-btn" disabled>Opt in to SMS alerts</button>
+        <a class="skip-link" href="track-record.html">No thanks — just show me the results</a>
+      </div>
     </form>
 
     <div class="result" id="result">
